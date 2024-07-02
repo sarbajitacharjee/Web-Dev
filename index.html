@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Background Color Changer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(45deg, #c75151, #f0b27a);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        button{
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+        h1, h3 {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="">
+        <h1>Welcome To The Site</h1><br>
+        <button id="btn">CLICK TO CHANGE COLOR</button><br><br>
+        <h3 id="colorcode"></h3>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const colorcode = document.querySelector('#colorcode');
+        btn.addEventListener("click", () => {
+            let color = "123456789ABCDEF";
+            let color1 = "#", color2 = "#";
+            for(let i = 0; i < 6; i++){
+                color1 += color[Math.floor(Math.random() * 15)];
+                color2 += color[Math.floor(Math.random() * 15)];
+            }
+            document.body.style.background = `linear-gradient(45deg, ${color1}, ${color2})`;
+            colorcode.innerHTML = `Color Codes: [${color1}, ${color2}]`;
+        });
+    </script>
+</body>
+</html>
